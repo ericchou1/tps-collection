@@ -1,0 +1,19 @@
+2016-06-29T17:11:57.452Z a10-ubuntu3 2016-06-29T03:14:28-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)
+2016-06-29T17:13:45.495Z a10-ubuntu3 2016-06-29T03:16:16-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)
+2016-06-29T17:15:44.542Z a10-ubuntu3 2016-06-29T03:18:15-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)
+2016-06-29T17:17:42.580Z a10-ubuntu3 2016-06-29T03:20:13-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)
+2016-06-29T17:19:34.616Z a10-ubuntu3 2016-06-29T03:22:05-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)
+2016-06-29T17:21:19.455Z a10-ubuntu3 2016-06-29T03:23:50-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)
+2016-06-29T17:22:23.461Z a10-ubuntu3 2016-06-29T03:24:54-07:00 192.168.199.152 TH4435-1 a10logd: [SYSTEM]<5> A cli session for user "admin" from 192.168.199.170 has been opened. Session ID assigned is 1.
+2016-06-29T17:23:01.004Z a10-ubuntu3 2016-06-29T03:25:31-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)
+2016-06-29T17:24:57.063Z a10-ubuntu3 2016-06-29T03:27:28-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)
+2016-06-29T17:26:39.913Z a10-ubuntu3 2016-06-29T03:29:11-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)
+2016-06-29T17:28:29.796Z a10-ubuntu3 2016-06-29T03:31:01-07:00 192.168.199.152 TH4435-1 a10logd: [DDOS]<4> CEF:0|A10|TH4435 TPS|3.2.1|DDOS|4|externalId=3219593189 cs1=Test-Server traffic-type UDP cs1Label=obj-info msg=Dst entry packet rate exceed detected timestamp=Wed Jun 29 03:31:01 2016 cs2=1 cs2Label=glid cn1=1 cn1Label=limit cnt=2335705493 src=188.231.93.211 spt=2628 dst=210.0.0.10 dpt=53 act=drop
+2016-06-29T17:28:38.036Z a10-ubuntu3 2016-06-29T03:31:09-07:00 192.168.199.152 TH4435-1 a10logd: [DDET]<6> Attack detected on zone Test-Server port 53 udp, moved zone to level 1
+2016-06-29T17:28:41.263Z a10-ubuntu3 2016-06-29T03:31:09-07:00 192.168.199.152 TH4435-1 a10logd: [SYSTEM]<5> A aXAPI session for user "admin" from 192.168.199.151 has been opened. Session ID assigned is 2.
+2016-06-29T17:28:41.615Z a10-ubuntu3 2016-06-29T03:31:09-07:00 192.168.199.152 TH4435-1 a10logd: [SYSTEM]<5> Session ID 2 is now closed.
+2016-06-29T17:28:41.615Z a10-ubuntu3 2016-06-29T03:31:10-07:00 192.168.199.152 TH4435-1 a10logd: [DDET]<6> Script get_environ.sh executed on zone Test-Server port 53, status = 0
+2016-06-29T17:28:41.615Z a10-ubuntu3 2016-06-29T03:31:11-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)
+2016-06-29T17:28:58.921Z a10-ubuntu3 2016-06-29T03:31:29-07:00 192.168.199.152 TH4435-1 a10logd: [DDET]<6> Attack cleared on zone Test-Server
+2016-06-29T17:30:28.342Z a10-ubuntu3 2016-06-29T03:32:59-07:00 192.168.199.152 TH4435-1 a10logd: [DDOS]<4> CEF:0|A10|TH4435 TPS|3.2.1|DDOS|4|externalId=3220193209 cs1=Test-Server traffic-type ---- cs1Label=obj-info msg=Dst entry packet rate exceed cleared timestamp=Wed Jun 29 03:31:20 2016 cs2=1 cs2Label=glid cn1=1 cn1Label=limit act=drop
+2016-06-29T17:30:38.582Z a10-ubuntu3 2016-06-29T03:33:09-07:00 192.168.199.152 TH4435-1 a10logd: [L3]<7> BGP: Network socket failed, code 107, reason Transport endpoint is not connected, FD(12)

@@ -1,0 +1,35 @@
+TH4435-1#sh log
+Log Buffer: 20000
+Jun 28 2016 09:53:16 Notice  [SYSTEM]:A cli session for user "admin" from 192.168.199.170 has been opened. Session ID assigned is 1.
+Jun 27 2016 05:18:05 Notice  [SYSTEM]:Session ID 1 is now closed.
+Jun 27 2016 05:18:05 Notice  [SYSTEM]:Session ID 1 for user "admin" from 192.168.199.170 has timed out.
+Jun 27 2016 05:03:05 Notice  [SYSTEM]:A cli session for user "admin" from 192.168.199.170 has been opened. Session ID assigned is 1.
+Jun 27 2016 04:28:51 Notice  [SYSTEM]:Session ID 1 is now closed.
+Jun 27 2016 04:28:51 Notice  [SYSTEM]:Session ID 1 for user "admin" from 192.168.199.170 has timed out.
+Jun 27 2016 04:14:48 Warning [DDOS]:CEF:0|A10|TH4435 TPS|3.2.1|DDOS|4|externalId=3220193208 cs1=Test-Server traffic-type ---- cs1Label=obj-info msg=Dst entry packet rate exceed cleared timestamp=Mon Jun 27 04:13:20 2016 cs2=1 cs2Label=glid cn1=1 cn1Label=limit act=drop
+Jun 27 2016 04:13:48 Info    [DDET]:Attack cleared on zone Test-Server
+Jun 27 2016 04:13:14 Notice  [SYSTEM]:Session ID 2 is now closed.
+Jun 27 2016 04:13:14 Notice  [SYSTEM]:A aXAPI session for user "admin" from 192.168.199.151 has been opened. Session ID assigned is 2.
+Jun 27 2016 04:13:07 Info    [DDET]:Script get_environ.sh executed on zone Test-Server port 53, status = 0
+Jun 27 2016 04:13:06 Info    [DDET]:Attack detected on zone Test-Server port 53 udp, moved zone to level 1
+Jun 27 2016 04:13:05 Warning [DDOS]:CEF:0|A10|TH4435 TPS|3.2.1|DDOS|4|externalId=3220593189 cs1=Test-Server traffic-type UDP cs1Label=obj-info msg=Dst entry packet rate exceed detected timestamp=Mon Jun 27 04:13:05 2016 cs2=1 cs2Label=glid cn1=1 cn1Label=limit cnt=2318253623 src=188.133.102.122 spt=1973 dst=210.0.0.10 dpt=53 act=drop
+Jun 27 2016 04:02:13 Notice  [SYSTEM]:A cli session for user "admin" from 192.168.199.170 has been opened. Session ID assigned is 1.
+Jun 24 2016 05:52:52 Notice  [SYSTEM]:Session ID 1 is now closed.
+Jun 24 2016 05:52:52 Notice  [SYSTEM]:Session ID 1 for user "admin" from 192.168.199.170 has timed out.
+Jun 24 2016 05:39:31 Warning [DDOS]:CEF:0|A10|TH4435 TPS|3.2.1|DDOS|4|externalId=3220193207 cs1=Test-Server traffic-type ---- cs1Label=obj-info msg=Dst entry packet rate exceed cleared timestamp=Fri Jun 24 05:38:40 2016 cs2=1 cs2Label=glid cn1=1 cn1Label=limit act=drop
+Jun 24 2016 05:37:47 Info    [DDET]:Script get_environ.sh executed on zone Test-Server port 53, status = 0
+Jun 24 2016 05:37:47 Info    [DDET]:Attack cleared on zone Test-Server
+Jun 24 2016 05:37:46 Info    [DDET]:Attack detected on zone Test-Server port 53 udp, moved zone to level 1
+Jun 24 2016 05:37:41 Notice  [SYSTEM]:Session ID 2 is now closed.
+Jun 24 2016 05:37:40 Notice  [SYSTEM]:A aXAPI session for user "admin" from 192.168.199.151 has been opened. Session ID assigned is 2.
+Jun 24 2016 05:37:31 Warning [DDOS]:CEF:0|A10|TH4435 TPS|3.2.1|DDOS|4|externalId=3220893185 cs1=Test-Server traffic-type UDP cs1Label=obj-info msg=Dst entry packet rate exceed continues timestamp=Fri Jun 24 05:37:31 2016 cs2=1 cs2Label=glid cn1=1 cn1Label=limit cnt=2313398190 src=181.92.158.115 spt=23237 dst=210.0.0.10 dpt=53 act=drop
+Jun 24 2016 05:37:27 Warning [DDOS]:CEF:0|A10|TH4435 TPS|3.2.1|DDOS|4|externalId=3220493183 cs1=Test-Server traffic-type UDP cs1Label=obj-info msg=Dst entry packet rate exceed detected timestamp=Fri Jun 24 05:37:27 2016 cs2=1 cs2Label=glid cn1=1 cn1Label=limit cnt=2311938519 src=233.56.56.190 spt=1877 dst=210.0.0.10 dpt=53 act=drop
+Jun 24 2016 05:21:30 Warning [DDOS]:CEF:0|A10|TH4435 TPS|3.2.1|DDOS|4|externalId=3220193206 cs1=Test-Server traffic-type ---- cs1Label=obj-info msg=Dst entry packet rate exceed cleared timestamp=Fri Jun 24 05:20:40 2016 cs2=1 cs2Label=glid cn1=1 cn1Label=limit act=drop
+Jun 24 2016 05:20:26 Info    [DDET]:Attack cleared on zone Test-Server
+Jun 24 2016 05:19:30 Warning [DDOS]:CEF:0|A10|TH4435 TPS|3.2.1|DDOS|4|externalId=3220393186 cs1=Test-Server traffic-type UDP cs1Label=obj-info msg=Dst entry packet rate exceed continues timestamp=Fri Jun 24 05:19:30 2016 cs2=1 cs2Label=glid cn1=1 cn1Label=limit cnt=2285004112 src=211.100.48.132 spt=4213 dst=210.0.0.10 dpt=53 act=drop
+Jun 24 2016 05:19:16 Info    [DDET]:Script get_environ.sh executed on zone Test-Server port 53, status = 0
+Jun 24 2016 05:19:15 Notice  [SYSTEM]:Session ID 2 is now closed.
+Jun 24 2016 05:19:15 Notice  [SYSTEM]:A aXAPI session for user "admin" from 192.168.199.151 has been opened. Session ID assigned is 2.
+Jun 24 2016 05:19:14 Info    [DDET]:Attack detected on zone Test-Server port 53 udp, moved zone to level 1
+Jun 24 2016 05:19:06 Warning [DDOS]:CEF:0|A10|TH4435 TPS|3.2.1|DDOS|4|externalId=3220993186 cs1=Test-Server traffic-type UDP cs1Label=obj-info msg=Dst entry packet rate exceed detected timestamp=Fri Jun 24 05:19:06 2016 cs2=1 cs2Label=glid cn1=1 cn1Label=limit cnt=2272037838 src=138.134.216.46 spt=2395 dst=210.0.0.10 dpt=53 act=drop
+TH4435-1#
