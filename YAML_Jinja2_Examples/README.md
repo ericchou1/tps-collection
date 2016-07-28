@@ -1,13 +1,13 @@
-##Using YAML and Jinja2 for A10 Thunder TPS Config Generation
+#Using YAML and Jinja2 for A10 Thunder TPS Config Generation
 
-#Usage
+##Usage
 
 1. Require jinja2 and pyyaml, i.e. pip install pyyaml jinja2 
 ```
 $ python config_generate.py tps_base_config.yaml tps_base_config_template.txt
 ```
 
-#Output
+##Output
 ```
 !
 system anomaly log
@@ -35,7 +35,7 @@ ntp server 2.2.2.2
 $
 ```
 
-#Overview
+##Overview
 
 Jinja2, http://jinja.pocoo.org/docs/dev/, is a template engine widely used in Python web frameworks. Besides rendering HTML pages, it can also be used to render text files, such as A10 Thunder TPS configuration file. 
 
@@ -78,7 +78,7 @@ u'\n\nI like device1\n\nI like device2\n'
 There are a ton more features in Jinja2, please check out http://jinja.pocoo.org/docs/dev/.
 ```
  
-#Quick YAML Walk Thru
+##Quick YAML Walk Thru
 ```
 # YAML files starts with "---" at the top
 
@@ -130,7 +130,7 @@ Please check out http://yaml.org/ for more types.
 
 ```
 
-# Putting it all together
+## Putting it all together
 ```
 echou-a10:a10_simple_example echou$ cat tps_base_config.yaml
 ---
