@@ -1,5 +1,5 @@
 # tps-collection
 
-A10 Network Threat Protection System (TPS) collection of files
+A10 Network Thunder Threat Protection System (TPS) collection of files
 
 
