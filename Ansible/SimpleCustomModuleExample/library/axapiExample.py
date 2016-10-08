@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+# Eric Chou (ericc@a10networks.com, Twitter @ericchou) 
+
 DOCUMENTATION = """
 ---
 """
@@ -11,6 +13,8 @@ def main():
 
     import requests, json
 
+    # AnsibleModule API from ansible.module_utils.basic
+    # for ingesting Playbook inventory parameters 
     module = AnsibleModule(
         argument_spec = dict(
             host = dict(required=True),
@@ -53,8 +57,10 @@ def main():
     #print("Log off")
     r = requests.post(url, headers=common_headers, verify=False)
 
-    module.exit_json(changed=True, msg=str(data))
+    # Signals module exit
+    module.exit_json(changed=False, msg=str(data))
 
+# Ansible standard for import at the bottom instead of top
 from ansible.module_utils.basic import *
 main()
 
