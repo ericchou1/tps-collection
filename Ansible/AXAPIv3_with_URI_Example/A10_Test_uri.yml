@@ -1,0 +1,62 @@
+---
+- name: A10 aXAPIv3 Demonstration Playbook
+  hosts: "a10-devices"
+  gather_facts: false
+  connection: local
+
+  vars: 
+    axapi_v3: "axapi/v3"
+
+  tasks:
+    - name: authenticate
+      uri: 
+        url: https://192.168.199.152/{{ axapi_v3 }}/auth
+        method: POST
+        validate_certs: no
+        body_format: json
+        body: { 'credentials': {'username': 'admin', 'password': 'a10'} }
+      register: output
+
+    - name: show output 
+      debug:
+        var: output
+    
+    - name: show version
+      uri: 
+        url: https://192.168.199.152/{{ axapi_v3 }}/version/oper
+        method: GET
+        HEADER_Content-type: 'application/json'
+        HEADER_Authorization: 'A10 {{ output.json.authresponse.signature }}'
+        validate_certs: no
+      register: version
+
+    - name: show version output
+      debug: 
+        var: version
+
+    - name: change hostname
+      uri: 
+        url: https://192.168.199.152/{{ axapi_v3 }}/hostname
+        method: POST
+        HEADER_Content-type: 'application/json'
+        HEADER_Authorization: 'A10 {{ output.json.authresponse.signature }}'
+        validate_certs: no
+        body_format: json
+        body: {"hostname": {"value": "TH4435-1"}}
+
+    - name: write memory
+      uri: 
+        url: https://192.168.199.152/{{ axapi_v3 }}/write/memory
+        method: POST
+        HEADER_Content-type: 'application/json'
+        HEADER_Authorization: 'A10 {{ output.json.authresponse.signature }}'
+        validate_certs: no
+    
+    - name: logoff
+      uri: 
+        url: https://192.168.199.152/{{ axapi_v3 }}/logoff
+        method: POST
+        HEADER_Content-type: 'application/json'
+        HEADER_Authorization: 'A10 {{ output.json.authresponse.signature }}'
+        validate_certs: no
+ 
