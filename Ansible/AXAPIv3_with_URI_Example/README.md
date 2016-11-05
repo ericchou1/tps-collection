@@ -1,5 +1,4 @@
 # This example utilize the A10 Thunder aXAPIv3 with Ansible URI module
-# to quickly perform show and config commands. 
 
 The playbook contains the following: 
 
