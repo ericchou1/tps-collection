@@ -1,0 +1,26 @@
+---
+- name: Build Hosts
+  hosts: all
+  gather_facts: false
+
+  tasks:
+  - name: update repository cache
+    apt:
+      update_cache: true
+    become: true
+
+  - name: install vim
+    apt:
+      name: vim
+    become: true
+
+  - name: copy vimrc file
+    copy : src=vimrc dest=/home/echou/.vimrc owner=echou
+
+  - name: install packages
+    apt: name={{item}} state=installed
+    with_items:
+      - hping3
+      - tshark
+    become: true
+
