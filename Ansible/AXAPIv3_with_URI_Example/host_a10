@@ -1,5 +1,5 @@
 [a10-devices]
-192.168.199.152.xip.io
+192.168.199.152 ansible_host=192.168.199.152
 
 [all:vars]
 ansible_python_interpreter=/Users/echou/anaconda/bin/python

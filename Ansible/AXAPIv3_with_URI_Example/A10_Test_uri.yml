@@ -10,7 +10,7 @@
   tasks:
     - name: authenticate
       uri: 
-        url: https://192.168.199.152/{{ axapi_v3 }}/auth
+        url: https://{{ ansible_host }}/{{ axapi_v3 }}/auth
         method: POST
         validate_certs: no
         body_format: json
@@ -23,7 +23,7 @@
     
     - name: show version
       uri: 
-        url: https://192.168.199.152/{{ axapi_v3 }}/version/oper
+        url: https://{{ ansible_host }}/{{ axapi_v3 }}/version/oper
         method: GET
         HEADER_Content-type: 'application/json'
         HEADER_Authorization: 'A10 {{ output.json.authresponse.signature }}'
@@ -36,7 +36,7 @@
 
     - name: change hostname
       uri: 
-        url: https://192.168.199.152/{{ axapi_v3 }}/hostname
+        url: https://{{ ansible_host }}/{{ axapi_v3 }}/hostname
         method: POST
         HEADER_Content-type: 'application/json'
         HEADER_Authorization: 'A10 {{ output.json.authresponse.signature }}'
@@ -46,7 +46,7 @@
 
     - name: write memory
       uri: 
-        url: https://192.168.199.152/{{ axapi_v3 }}/write/memory
+        url: https://{{ ansible_host }}/{{ axapi_v3 }}/write/memory
         method: POST
         HEADER_Content-type: 'application/json'
         HEADER_Authorization: 'A10 {{ output.json.authresponse.signature }}'
@@ -54,7 +54,7 @@
     
     - name: logoff
       uri: 
-        url: https://192.168.199.152/{{ axapi_v3 }}/logoff
+        url: https://{{ ansible_host }}/{{ axapi_v3 }}/logoff
         method: POST
         HEADER_Content-type: 'application/json'
         HEADER_Authorization: 'A10 {{ output.json.authresponse.signature }}'
