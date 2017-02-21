@@ -1,0 +1,33 @@
+---
+- name: Create TPS Base Config
+  hosts: localhost
+  vars: 
+    tps_devices: {
+      "sea-tps1": { 
+         "hostname": "sea-tps1",
+         "management_ip": "192.168.1.10",
+         "management_mask": "2555.255.255.0",
+         "management_gateway": "192.168.1.1",
+         "glids": [ 
+            {"number": 4, "description": "TEST1", "bit_rate_limit": 1000 },
+            {"number": 5, "description": "TEST2", "bit_rate_limit": 1000}
+          ],
+         "logging_host": "192.168.1.100",
+         "bgp_asn": "65001",
+         "bgp_id": "192.168.1.10",
+         "bgp_neighbors": [
+            {"ip": "172.16.1.12", "asn": "65002", "description": "upstream"},
+            {"ip": "172.16.1.14", "asn": "65002", "description": "upstream"} 
+          ],
+         "sflow_collector": "192.168.1.101",
+         "sflow_agent_addr": "192.168.1.10"
+      }
+    }
+  
+  tasks: 
+    - name: Create TPS Base Config
+      template: 
+        src=./Templates/tps_base_config_v1.j2
+        dest=./Configs/{{ item.key }}.txt
+      with_dict: "{{ tps_devices }}"
+
