@@ -1,0 +1,19 @@
+---
+- name: Create TPS Zone Config
+  hosts: localhost
+  vars: 
+    tps_zones: {
+      "webserver": { 
+         "zone_name": "webserver",
+         "zone_ip": "192.168.1.101",
+         "bgp_advertise": True
+      }
+    }
+  
+  tasks: 
+    - name: Create TPS Zone Config
+      template: 
+        src=./Templates/tps_zone_config_v1.j2
+        dest=./Configs/{{ item.key }}_zone.txt
+      with_dict: "{{ tps_zones }}"
+

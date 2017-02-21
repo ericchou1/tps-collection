@@ -1,0 +1,88 @@
+system anomaly log
+system attack log
+system ddos-attack log
+!
+hostname sea-tps1
+!
+interface management
+  ip address 192.168.1.10 2555.255.255.0
+  ip control-apps-use-mgmt-port
+  ip default-gateway 192.168.1.1
+  enable
+!
+interface ethernet 1
+  name Inbound
+  enable
+!
+interface ethernet 2
+  name Outbound
+!
+!
+glid 1
+  description "10gbps rate limiter"
+  bit-rate-limit 10000000
+!
+glid 2
+  description "1gbps rate limiter"
+  bit-rate-limit 1000000
+!
+glid 3
+  description "100mbps rate limiter"
+  bit-rate-limit 100000
+!
+!
+glid 4
+  description TEST1
+  bit-rate-limit 1000
+glid 5
+  description TEST2
+  bit-rate-limit 1000
+!
+ddos protection enable
+ddos protection rate-interval 1sec
+!
+ddos resource-tracking cpu enable
+!
+ddos zone-template logging cef-logger
+  log-format-cef
+  enable-action-logging
+!
+ddos zone-template tcp tcp-protect1
+  syn-authentication send-rst
+  syn-authentication pass-action authenticate-src
+  syn-authentication fail-action drop
+!
+ddos zone-template udp udp-protect1
+  spoof-detect timeout 5
+  spoof-detect min-delay 2
+  spoof-detect pass-action authenticate-src
+  spoof-detect fail-action drop
+  known-resp-src-port action drop
+!
+logging syslog information
+!
+logging host 192.168.1.100  use-mgmt-port
+!
+router bgp 65001
+  bgp log-neighbor-changes
+  bgp router-id 192.168.1.10
+  neighbor 172.16.1.12 remote-as 65002
+  neighbor 172.16.1.12 description upstream
+  neighbor 172.16.1.12 route-map ddos-advertise out
+  neighbor 172.16.1.14 remote-as 65002
+  neighbor 172.16.1.14 description upstream
+  neighbor 172.16.1.14 route-map ddos-advertise out
+!
+route-map ddos-advertise permit 1
+!
+sflow setting max-header 128
+sflow setting packet-sampling-rate 1000
+!
+sflow collector ip 192.168.1.101 6343 use-mgmt-port
+!
+sflow agent address 192.168.1.10
+!
+sflow sampling ethernet 1
+!
+end
+

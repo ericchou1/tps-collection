@@ -1,0 +1,86 @@
+system anomaly log
+system attack log
+system ddos-attack log
+!
+hostname {{ item.value.hostname }}
+!
+interface management
+  ip address {{ item.value.management_ip }} {{ item.value.management_mask }}
+  ip control-apps-use-mgmt-port
+  ip default-gateway {{ item.value.management_gateway }}
+  enable
+!
+interface ethernet 1
+  name Inbound
+  enable
+!
+interface ethernet 2
+  name Outbound
+!
+!
+glid 1
+  description "10gbps rate limiter"
+  bit-rate-limit 10000000
+!
+glid 2
+  description "1gbps rate limiter"
+  bit-rate-limit 1000000
+!
+glid 3
+  description "100mbps rate limiter"
+  bit-rate-limit 100000
+!
+!
+{% for glid in item.value.glids %}
+glid {{ glid.number }}
+  description {{ glid.description }}
+  bit-rate-limit {{ glid.bit_rate_limit }}
+{% endfor %}
+!
+ddos protection enable
+ddos protection rate-interval 1sec
+!
+ddos resource-tracking cpu enable
+!
+ddos zone-template logging cef-logger
+  log-format-cef
+  enable-action-logging
+!
+ddos zone-template tcp tcp-protect1
+  syn-authentication send-rst
+  syn-authentication pass-action authenticate-src
+  syn-authentication fail-action drop
+!
+ddos zone-template udp udp-protect1
+  spoof-detect timeout 5
+  spoof-detect min-delay 2
+  spoof-detect pass-action authenticate-src
+  spoof-detect fail-action drop
+  known-resp-src-port action drop
+!
+logging syslog information
+!
+logging host {{ item.value.logging_host }}  use-mgmt-port
+!
+router bgp {{ item.value.bgp_asn }}
+  bgp log-neighbor-changes
+  bgp router-id {{ item.value.bgp_id }}
+{% for bgp_neighbor in item.value.bgp_neighbors %}
+  neighbor {{ bgp_neighbor.ip }} remote-as {{ bgp_neighbor.asn }}
+  neighbor {{ bgp_neighbor.ip }} description {{ bgp_neighbor.description }}
+  neighbor {{ bgp_neighbor.ip }} route-map ddos-advertise out
+{% endfor %}
+!
+route-map ddos-advertise permit 1
+!
+sflow setting max-header 128
+sflow setting packet-sampling-rate 1000
+!
+sflow collector ip {{ item.value.sflow_collector }} 6343 use-mgmt-port
+!
+sflow agent address {{ item.value.sflow_agent_addr }}
+!
+sflow sampling ethernet 1
+!
+end
+
