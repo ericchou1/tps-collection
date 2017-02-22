@@ -68,3 +68,43 @@ ddos dst zone webserver
     deny
 ```
 
+## Beta: Config Push
+
+You can use the beta configuration push Playbook and module as below: 
+
+```
+(TPS_Config_Push.yml)
+---
+- hosts: localhost
+  user: echou
+  connection: local
+
+  tasks:
+      - name: Thunder TPS configuration push using cli.deploy
+        action: config_push host="192.168.199.152" username="admin" password="a10" config_file="./Configs/webserver_zone.txt"
+        register: output
+
+      - debug: msg="{{ output.msg }}"
+
+
+(output)
+PLAY ***************************************************************************
+
+TASK [setup] *******************************************************************
+ok: [localhost]
+
+TASK [Thunder TPS configuration push using cli.deploy] *************************
+ok: [localhost]
+
+TASK [debug] *******************************************************************
+ok: [localhost] => {
+    "msg": {
+        "Result": "{\n  \"response\": {\n    \"status\": \"OK\"\n  }\n}"
+    }
+}
+
+PLAY RECAP *********************************************************************
+localhost                  : ok=3    changed=0    unreachable=0    failed=0
+
+```
+
