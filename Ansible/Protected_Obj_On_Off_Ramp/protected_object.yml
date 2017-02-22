@@ -1,0 +1,14 @@
+---
+- name: Playbook for On / Off Ramp Thunder TPS Protected Objects
+  hosts: localhost
+  user: echou
+  connection: local
+  gather_facts: false 
+
+  tasks:
+      - name: BGP On / Off Ramp for Protected Object
+        action: cli_deploy_example host="192.168.199.152" username="admin" password="a10" commands="router bgp 64513, network 1.1.1.1/32, wr mem"
+        register: output
+
+      - debug: msg="{{ output.msg }}"
+
