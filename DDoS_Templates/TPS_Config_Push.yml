@@ -1,0 +1,12 @@
+---
+- hosts: localhost
+  user: echou
+  connection: local
+
+  tasks:
+      - name: Thunder TPS configuration push using cli.deploy
+        action: config_push host="192.168.199.152" username="admin" password="a10" config_file="./Configs/webserver_zone.txt"
+        register: output
+
+      - debug: msg="{{ output.msg }}"
+
