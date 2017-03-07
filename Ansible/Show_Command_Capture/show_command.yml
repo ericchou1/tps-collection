@@ -1,0 +1,17 @@
+---
+- name: Playbook for Show Command
+  hosts: localhost
+  user: echou
+  connection: local
+  gather_facts: false 
+
+  tasks:
+      - name: show command
+        action: cli_deploy_example host="192.168.199.152" username="admin" password="a10" commands="show version"
+        register: output
+
+      - name: copy output out
+        copy: content="{{ output.msg }}" dest="/tmp/a10_output.txt"
+
+      - debug: msg="{{ output.msg }}"
+
