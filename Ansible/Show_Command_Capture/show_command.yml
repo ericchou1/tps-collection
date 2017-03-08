@@ -10,8 +10,14 @@
         action: cli_deploy_example host="192.168.199.152" username="admin" password="a10" commands="show version"
         register: output
 
-      - name: copy output out
+      - name: copy output out to /tmp/a10_output.txt
         copy: content="{{ output.msg }}" dest="/tmp/a10_output.txt"
 
-      - debug: msg="{{ output.msg }}"
+      - name: run another script to parse out serial number
+        command: ./parser.py
+        register: output 
+        
+      - name: show serial number
+        debug: msg="{{ output.stdout }}"
+      
 
